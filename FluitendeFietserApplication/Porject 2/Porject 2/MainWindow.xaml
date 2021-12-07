@@ -1,0 +1,119 @@
+﻿<Window x:Class="Porject_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Porject_2"
+        mc:Ignorable="d"
+        Title="De Fluitende Fietser" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="290*" />
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="75*" />
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="75*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="75*"/>
+            <ColumnDefinition Width="75*"/>
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="16" Grid.RowSpan="2" Background="Blue" Foreground="white"></TextBlock>
+        <TextBlock Text="Fietsverhuur De Fluitende Fietser – Facturering" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="16" Foreground="white"></TextBlock>
+
+
+        <TextBlock Text="Fietsen" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+        <ComboBox x:Name="fietscombow" Grid.Row="5" Grid.Column="1" SelectionChanged="fietscombo">
+            <ComboBoxItem>Aanhangfiets</ComboBoxItem>
+            <ComboBoxItem>Bakfiets</ComboBoxItem>
+            <ComboBoxItem>Driewielfiets</ComboBoxItem>
+            <ComboBoxItem>Elektrische fiets</ComboBoxItem>
+            <ComboBoxItem>Kinderfiets</ComboBoxItem>
+            <ComboBoxItem>Ligfiets</ComboBoxItem>
+            <ComboBoxItem>Oma fiets</ComboBoxItem>
+            <ComboBoxItem>Racefiets</ComboBoxItem>
+            <ComboBoxItem>Speed pedelec</ComboBoxItem>
+            <ComboBoxItem>Stadsfiets</ComboBoxItem>
+            <ComboBoxItem>Vouwfiets</ComboBoxItem>
+            <ComboBoxItem>Zitfiets</ComboBoxItem>
+            <ComboBoxItem>Niets</ComboBoxItem>
+        </ComboBox>
+
+        <TextBlock Text="Verzekeringen" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+        <ComboBox x:Name="verzekeringencombos" Grid.Row="9" Grid.Column="1" SelectionChanged="verzekeringencombo" >
+            <ComboBoxItem>Beschadigingen</ComboBoxItem>
+            <ComboBoxItem>Diefstal</ComboBoxItem>
+            <ComboBoxItem>Rechtsbijstand</ComboBoxItem>
+            <ComboBoxItem>Ongevallen</ComboBoxItem>
+            <ComboBoxItem>Niets</ComboBoxItem>
+        </ComboBox>
+        
+        
+        <TextBlock Text="Services" Grid.Row="11" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+        <ComboBox x:Name="servicescombos" Grid.Row="13" Grid.Column="1" SelectionChanged="servicescombo">
+            <ComboBoxItem>Ophaalservice</ComboBoxItem>
+            <ComboBoxItem>Regenpak</ComboBoxItem>
+            <ComboBoxItem>Lunchpakket basis</ComboBoxItem>
+            <ComboBoxItem>Lunchpakket uitgebreid</ComboBoxItem>
+            <ComboBoxItem>Niets</ComboBoxItem>
+        </ComboBox>
+        
+        
+        <Button x:Name="toevoegen" Grid.Row="15" Grid.Column="1" Foreground="White" Background="Blue" Click="Toevoegen_Click">Toevoegen</Button>
+        <TextBlock Grid.Row="19" Grid.Column="1" Grid.ColumnSpan="7" VerticalAlignment="Center">Wegens privacy wordt het scherm na 1 minuut niets doen gesloten!</TextBlock>
+        <TextBlock Grid.Row="19" Grid.Column="9" Grid.ColumnSpan="6" Background="Blue"></TextBlock>
+        <TextBlock x:Name="timerlbl" Grid.Row="19" Grid.Column="9" Grid.ColumnSpan="6" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White">60</TextBlock>
+        
+        
+        <ListBox x:Name="lboverzicht" Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="6" Grid.RowSpan="13" SelectionChanged="lboverzicht_select"></ListBox>
+        <Button x:Name="verwijderen" Grid.Row="17" Grid.Column="9" Click="verwijderen_Click">Verwijderen</Button>
+        <Button x:Name="betalen" Grid.Row="17" Grid.Column="11" Click="betalen_Click">Betalen</Button>
+        
+        <TextBlock x:Name="eindtotalen" Grid.Row="17" Grid.Column="13" VerticalAlignment="Center" HorizontalAlignment="Center">€0,00</TextBlock>
+        <TextBlock x:Name="prijsfietsen" Grid.Row="5" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center">€0,00</TextBlock>
+
+        <Button x:Name="btnpfiets" Grid.Row="5" Grid.Column="5"  FontSize="20" Background="Blue" Foreground="White" Click="btnpfiets_Click">+</Button>
+        <Button x:Name="btnmfiets" Grid.Row="5" Grid.Column="7"  FontSize="20" Background="Blue" Foreground="White" Click="btnmfiets_Click">-</Button>
+
+        <TextBlock x:Name="prijsverzekeringen" Grid.Row="9" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center">€0,00</TextBlock>
+        
+        <Button x:Name="btnpverzeker" Grid.Row="9" Grid.Column="5" FontSize="20" Background="Blue" Foreground="White" Click="btnpverzeker_Click">+</Button>
+        <Button x:Name="btnmverzeker" Grid.Row="9" Grid.Column="7" FontSize="20" Background="Blue" Foreground="White" Click="btnmverzeker_Click">-</Button>
+
+        <TextBlock x:Name="prijsservices" Grid.Row="13" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center">€0,00</TextBlock>
+        <Button x:Name="btnpservice" Grid.Row="13" Grid.Column="5" FontSize="20" Background="Blue" Foreground="White" Click="btnpservice_Click">+</Button>
+        <Button x:Name="btnmservice" Grid.Row="13" Grid.Column="7" FontSize="20" Background="Blue" Foreground="White" Click="btnmservice_Click">-</Button>
+        
+    </Grid>
+</Window>
